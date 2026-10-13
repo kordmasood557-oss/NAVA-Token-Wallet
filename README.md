@@ -44,3 +44,37 @@ All token allocation and charitable mechanisms must be technically implemented, 
 ## Project Status
 
 Concept and planning phase.
+
+# NAVA Token & Wallet
+
+## Project Overview
+
+NAVA is a concept for a dedicated digital token and wallet ecosystem inspired by the NAVA vehicle project.
+
+## Core Objectives
+
+- Create a distinctive NAVA token design.
+- Explore secure blockchain implementation.
+- Develop a user-friendly wallet concept.
+- Establish transparent token allocation principles.
+- Explore ways to support people in need.
+
+## Design Vision
+
+The NAVA identity combines antique elegance, futuristic aesthetics, cosmic purple, and polished silver.
+
+## Development Roadmap
+
+1. Define token specifications.
+2. Establish transparent allocation rules.
+3. Test a smart contract on a test network.
+4. Develop the wallet concept.
+5. Review security before any real deployment.
+
+## Project Status
+
+Concept and planning phase.
+
+## Important Notice
+
+No token has been launched, and no financial value or security guarantee is implied.
