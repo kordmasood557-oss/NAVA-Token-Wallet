@@ -1,0 +1,20 @@
+# NAVA Token
+
+A transparent digital token project designed around trust,
+accountability, and responsible allocation.
+
+## Principles
+- Transparent token supply and allocation
+- Verifiable transaction history
+- Clearly documented charitable allocations
+- Smart-contract-enforced restrictions where required
+- Public testing before any mainnet deployment
+
+## Security
+No private keys or secret credentials belong in this repository.
+No allocation is considered locked until a deployed and audited
+smart contract enforces the applicable rules.
+
+## Status
+Documentation prototype.
+No live token has been deployed.
