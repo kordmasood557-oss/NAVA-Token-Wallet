@@ -79,3 +79,30 @@ Concept and planning phase.
 
 No token has been launched, and no financial value or security guarantee is implied.
 README.md
+// فرض بر این است که پکیج ethers نصب شده است و signer از طریق احراز هویت جیمیل آماده است
+import { ethers } from "ethers";
+
+async function setupWalletAndBalance(signer) {
+    try {
+        // ۱. گرفتن آدرس عمومی کیف پول
+        const address = await signer.getAddress();
+        console.log("آدرس کیف پول:", address);
+
+        // ۲. اتصال به یک ارائه‌دهنده شبکه (مثلاً شبکه تست یا اتریوم)
+        // اگر پروژه‌تان ارائه‌دهنده (Provider) مشخصی دارد، از همان استفاده کنید
+        const provider = signer.provider || new ethers.JsonRpcProvider("https://rpc.ankr.com/eth");
+
+        // ۳. گرفتن موجودی (Balance)
+        const balanceWei = await provider.getBalance(address);
+        const balanceEth = ethers.formatEther(balanceWei);
+        console.log("موجودی حساب:", balanceEth, "ETH");
+
+        return {
+            address,
+            balance: balanceEth
+        };
+    } catch (error) {
+        console.error("خطا در دریافت اطلاعات کیف پول:", error);
+    }
+}
+
