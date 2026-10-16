@@ -106,3 +106,31 @@ async function setupWalletAndBalance(signer) {
     }
 }
 
+// تابع ارسال تراکنش
+async function sendTransaction(signer, recipientAddress, amountInEth) {
+    try {
+        console.log("در حال آماده‌سازی تراکنش...");
+
+        // تبدیل مقدار ارز (مثلاً اتریوم) به واحد Wei (کوچک‌ترین واحد شبکه)
+        const txValue = ethers.parseEther(amountInEth.toString());
+
+        // ساخت و ارسال تراکنش
+        const tx = await signer.sendTransaction({
+            to: recipientAddress,
+            value: txValue
+        });
+
+        console.log("تراکنش ارسال شد. شناسه تراکنش (Tx Hash):", tx.hash);
+
+        // منتظر ماندن برای تایید شدن تراکنش در بلاک‌چین
+        console.log("در انتظار تایید تراکنش...");
+        const receipt = await tx.wait();
+        
+        console.log("تراکنش با موفقیت تایید شد در بلاک:", receipt.blockNumber);
+        return { success: true, txHash: tx.hash };
+
+    } catch (error) {
+        console.error("خطا در ارسال تراکنش:", error);
+        return { success: false, error: error.message };
+    }
+}
