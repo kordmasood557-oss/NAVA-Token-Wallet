@@ -134,3 +134,59 @@ async function sendTransaction(signer, recipientAddress, amountInEth) {
         return { success: false, error: error.message };
     }
 }
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>کیف پول امن</title>
+    <style>
+        body { font-family: Tahoma, sans-serif; background: #f4f4f9; padding: 20px; text-align: center; }
+        .card { background: #fff; padding: 20px; border-radius: 8px; max-width: 400px; margin: auto; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        input, button { width: 90%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc; }
+        button { background: #007bff; color: white; border: none; cursor: pointer; }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>کیف پول من</h2>
+        
+        <!-- دکمه ورود با جیمیل -->
+        <button id="loginBtn">ورود با جیمیل</button>
+
+        <div id="walletInfo" style="display: none;">
+            <p><strong>آدرس:</strong> <span id="addressBox">--</span></p>
+            <p><strong>موجودی:</strong> <span id="balanceBox">--</span> ETH</p>
+            
+            <hr>
+            <h3>ارسال وجه</h3>
+            <input type="text" id="recipient" placeholder="آدرس گیرنده (0x...)">
+            <input type="text" id="amount" placeholder="مقدار (مثلاً 0.1)">
+            <button id="sendBtn">ارسال</button>
+        </div>
+    </div>
+
+    <script>
+        // در اینجا توابع اتصال، گرفتن موجودی و ارسال که بالاتر صحبت کردیم قرار می‌گیرند
+        document.getElementById('loginBtn').addEventListener('click', () => {
+            alert('اتصال با جیمیل برقرار شد! (نمونه)');
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('walletInfo').style.display = 'block';
+            document.getElementById('addressBox').innerText = '0x1234...ABCD';
+            document.getElementById('balanceBox').innerText = '1.5';
+        });
+
+        document.getElementById('sendBtn').addEventListener('click', () => {
+            const recipient = document.getElementById('recipient').value;
+            const amount = document.getElementById('amount').value;
+            if(!recipient || !amount) {
+                alert('لطفاً همه فیلدها را پر کنید.');
+                return;
+            }
+            alert(`تراکنش به مبلغ ${amount} برای آدرس ${recipient} با موفقیت ارسال شد!`);
+        });
+    </script>
+
+</body>
+</html>
